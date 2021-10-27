@@ -106,3 +106,4 @@ knitr::include_graphics("GitAdd.png")
 knitr::include_graphics("VersionControl.jpg", dpi = 100)
 ```
 
+# Metadata
