@@ -9,13 +9,21 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, cache = FALSE, tidy = TRUE, tidy.opts = list(width.cutoff = 50))
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, cache = FALSE, tidy = TRUE, tidy.opts = list(width.cutoff = 50))
 library(tidyverse)
 library(kableExtra)
 options("kableExtra.html.bsTable" = T)
 ```
 
 # Reproducibility and metadate
+
+## What is reproducible research?
+
+```{r, out.width== "80%"}
+knitr::include_graphics("reproducible-replicable-robust-generalisable.jpg", dpi = 600)
+```
+
+* Same data, same code same results
 
 ## What is reproducible research?
 
@@ -32,6 +40,13 @@ pacman::p_load(ggmap, ggplot2, dplyr, readr, leaflet, dygraphs, xts, lubridate, 
 knitr::include_graphics("Reproducible.png")
 ```
 
+## When it is not reproducible
+
+```{r}
+knitr::include_graphics("NonReproducible.gif")
+```
+
+
 ## Reproducibility in R
 
 ```{r, echo = F, out.width='30%', fig.align='center'}
@@ -44,6 +59,21 @@ knitr::include_graphics("Rmark.png")
     + Results (Manuscript, Webpage, WebApp)
     
 ## Some examples
+
+* Write articles in r with [rticles](https://pkgs.rstudio.com/rticles/)
+* Write your thesis in github [with Rmarkdown](https://github.com/lcreteig/thesis)
+* Continuous integration [earthquakes](https://github.com/derek-corcoran-barrios/SustainscapesOrganizationPres/)
+* This [presentation](https://github.com/Sustainscapes/MetadataPres)
+
+#  Why do reproducible research?
+
+##  Reproducible research benefits those who do it
+
+* You can do your research again
+* You can easily re-analyze when you have new input
+* You can easily share it, less time teaching how to do it
+* More citations, [McKiernan et al. 2016](https://elifesciences.org/articles/16800.pdf)
+
 
 # Github
 
@@ -70,4 +100,9 @@ knitr::include_graphics("Octocat.png")
 knitr::include_graphics("GitAdd.png")
 ```
 
+## Version control
+
+```{r}
+knitr::include_graphics("VersionControl.jpg", dpi = 100)
+```
 
