@@ -74,6 +74,9 @@ knitr::include_graphics("Rmark.png")
 * You can easily share it, less time teaching how to do it
 * More citations, [McKiernan et al. 2016](https://elifesciences.org/articles/16800.pdf)
 
+## Reproducible research benefits the community
+
+* You can share your code (easier for remote sharing)
 
 # Github
 
@@ -107,3 +110,63 @@ knitr::include_graphics("VersionControl.jpg", dpi = 100)
 ```
 
 # Metadata
+
+## What is metadata
+
+* Data about data
+
+```{r}
+knitr::include_graphics("Netflix_Metadata_structure.jpg")
+```
+
+
+## Why use metadata
+
+```{r}
+knitr::include_graphics("WhyMetadata.jpg")
+```
+
+* Who "owns" the data
+* Ensure citation
+* Ensure data quality
+* Who should I contact for clarification
+
+## Why use metadata
+
+* Example for papers
+
+```{r, message = FALSE, results='hide'}
+library(bibliometrix)
+file <- "https://www.bibliometrix.org/datasets/savedrecs.bib"
+
+M <- convert2df(file = file, dbsource = "isi", format = "bibtex")  
+  
+Table <- M %>% mutate_all(~str_wrap(.x, width = 15)) %>% as_tibble() %>% head(10)
+```
+
+
+```{r, message = FALSE}
+kbl(Table, full.width = F) %>%
+  kable_styling(c("striped", "hover", "condensed"), font_size = 7) %>%
+  scroll_box(width = "800px", height = "400px")
+```
+
+* What is the data
+
+## Why use metadata
+
+```{r}
+M <- metaTagExtraction(M, Field = "AU_CO", sep = ";")
+NetMatrix <- biblioNetwork(M, analysis = "collaboration", network = "countries", sep = ";")
+
+# Plot the network
+net=networkPlot(NetMatrix, n = dim(NetMatrix)[1], Title = "Country Collaboration", type = "circle", size=TRUE, remove.multiple=FALSE,labelsize=0.7,cluster="none")
+```
+## What metadata standards are we going to use
+
+* [EML](https://eml.ecoinformatics.org/) (Ecological Metadata Language, [associated r Package](https://docs.ropensci.org/EML/))
+* [PRISM](https://en.wikipedia.org/wiki/Publishing_Requirements_for_Industry_Standard_Metadata)
+* Species' range model metadata standards: [RMMS](https://onlinelibrary.wiley.com/doi/10.1111/geb.12993)
+
+# Questions?
+
